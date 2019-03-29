@@ -1,0 +1,29 @@
+<table >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Date</th>
+        <th scope="col">Patient</th>
+        <th scope="col">Donor</th>
+        <th scope="col">Hospital</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Donations.forEach((donation)=>{%>
+        <tr>
+          <td><%=donation._id%></td>
+          <td><%=donation.Donation_Date%></td>
+          <td><%=donation.Patient%></td>
+         
+          <td><%=donation.Donor%></td>
+          <td><%=donation.Hospital%></td>
+          
+          
+          <td>
+              <a  href="/Donation/edit/<%=donation._id%>">Edit</a>
+            <a  href="/Donation/delete/<%=donation._id%>">Delete</a>
+          </td>
+        </tr>
+      <%})%>
+    </tbody>
+  </table>

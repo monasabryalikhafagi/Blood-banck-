@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>Contact V17</title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!--===============================================================================================-->
+                <link rel="icon" type="image/png" href="assets/register/images/icons/favicon.ico"/>
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/bootstrap/css/bootstrap.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/animate/animate.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/css-hamburgers/hamburgers.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/animsition/css/animsition.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/select2/select2.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/daterangepicker/daterangepicker.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/css/util.css">
+                <link rel="stylesheet" type="text/css" href="assets/register/css/main.css">
+            <!--===============================================================================================-->
+            </head>
+<body >
+
+
+        <div class="container-contact100">
+                <div class="wrap-contact100">
+
+
+
+                        <form class="contact100-form validate-form" (ngSubmit)="Login()"
+                         role="form"#patfrm="ngForm" >
+                         <span class="contact100-form-title">
+                                Registeration
+                            </span>
+                                <div class="form-group col-sm-12" [class.has-error]="id.invalid">
+
+                                 
+                                  <div >
+                                   <input type="number"id="id" class="input100 wrap-input100 " name="_id" placeholder="ID"ngModel
+                                   required min="0"#id="ngModel">
+                                  </div>
+                                  
+                                  <div class="col-sm-5 alert alert-danger" *ngIf="id.invalid && id.touched">
+                                      <span *ngIf="id.errors?.required">
+                                        id required
+                                      </span>
+                                      <span *ngIf="id.errors?.min">
+                                            id >0
+                                          </span>
+                                 </div>
+                                </div>
+
+                                <div class="form-group col-sm-12" [class.has-error]="Name.invalid">
+                                    <div >
+                                        <input type="text"id="Name" class="input100 wrap-input100" name="PName" 
+                                        placeholder="Name"
+                                        ngModel (keydown)="onKeyDown($event)"  required #Name="ngModel">
+                                    </div>
+                                    <div class="col-sm-5 alert alert-danger" *ngIf="Name.invalid && Name.touched">
+                                        <span *ngIf="Name.errors?.required">
+                                            Name required
+                                        </span>
+                                   </div>
+                                  </div>
+                               
+                              
+                                  <div class="form-group col-sm-12" [class.has-error]="UserName.invalid">
+                                      <div >
+                                          <input type="text"id="UserName" class="input100 wrap-input100" name="Username" 
+                                          placeholder="UserName"
+                                          ngModel   required
+                                          (keydown)="onKeyDown($event)"
+                  
+                                          minlength="1"
+                                          maxlength="50"
+                                           required 
+                  
+                                           #UserName="ngModel">
+                                      </div>
+                                      <div class="col-sm-5 alert alert-danger" *ngIf="UserName.invalid && UserName.touched">
+                                          <span *ngIf="UserName.errors?.required">
+                                              UserName required
+                                          </span>
+                                          <span *ngIf="UserName.errors?.minlength">
+                                                minlength 1
+                                            </span>
+                                            <span *ngIf="UserName.errors?.maxlength">
+                                                maxlength 5
+                                            </span>
+                                     </div>
+                                    </div>
+                                    <div class="form-group col-sm-12" [class.has-error]="password.invalid">
+                                        <div>
+                                            <input type="password" id="password" class="input100 wrap-input100" name="Password" placeholder="password"
+                                            ngModel   (keydown)="onKeyDown($event)" required #password="ngModel">
+                                        </div>
+                                        <div class="col-sm-5 alert alert-danger" *ngIf="password.invalid && password.touched">
+                                            <span *ngIf="password.errors?.required">
+                                                password. required
+                                            </span>
+                                       </div>
+                                      </div>
+                              
+                                      <div class="form-group col-sm-12" [class.has-error]="Age.invalid">
+                                          <div >
+                                              <input type="number" class="input100 wrap-input100" name="Age" placeholder="Age"ngModel #Age="ngModel"
+                                              minlength="0"
+                                              maxlength="200"  (keydown)="onKeyDown($event)" required [range]="[0,45]">
+                                          </div>
+                                          <div class="col-sm-5 alert alert-danger" *ngIf="Age.invalid && Age.touched">
+                                              <span *ngIf="Age.errors?.required">
+                                                  Age. required
+                                              </span>
+                                              <span *ngIf="Age.errors?.range">
+                                                  Age. out of range
+                                              </span>
+                                         </div>
+                                        </div>
+                                       
+                                        
+                                          <div class="form-group col-sm-12" [class.has-error]="Gender.invalid">
+                                                <div class="col-sm-6">
+                                                
+                                                   <label for="female " style="font-size:15px; -webkit-text-fill-color: red;">female </label>
+                                                   <input type="radio"id="Female" value="female" class=" w-50"name="Gender" 
+                                                   ngModel required #Gender="ngModel">
+                                                    
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="male" style="font-size:15px; -webkit-text-fill-color: red;" >Male</label>
+                                                    <input type="radio"id="male" value="male" class="w-50"name="Gender" placeholder="male"ngModel required #Gender="ngModel">
+                                                     
+                                                </div>
+                                                <div class="col-sm-2 alert alert-danger" *ngIf="Gender.invalid && Gender.touched">
+                                                    <span *ngIf="Gender.errors?.required">
+                                                        Gender. required
+                                                    </span>
+                                               </div>
+                                              </div>
+                                          
+                                            <div class="form-group col-sm-12" [class.has-error]="city.invalid">
+                                                <div>
+                                                    <input type="text"id="city" class="input100 wrap-input100 col-sm-12" (keydown)="onKeyDown($event)"  name="City" placeholder="City"ngModel required #city="ngModel">
+                                                    
+                                                </div>
+                                                <div class="col-sm-5 alert alert-danger" *ngIf="city.invalid && city.touched">
+                                                    <span *ngIf="city.errors?.required">
+                                                        city. required
+                                                    </span>
+                                               </div>
+                                              </div>
+                                              <div class="form-group col-sm-12" [class.has-error]="street.invalid">
+                                                  <div >
+                                                      <input type="text"id="street" class="input100 wrap-input100" name="Street" placeholder="Street" (keydown)="onKeyDown($event)" ngModel required #street="ngModel">
+                                                      
+                                                  </div>
+                                                  <div class="col-sm-5  alert alert-danger" *ngIf="street.invalid && street.touched">
+                                                      <span *ngIf="street.errors?.required">
+                                                          street. required
+                                                      </span>
+                                                 </div>
+                                                </div>
+                                                
+                                                <div class="form-group col-sm-12" [class.has-error]="phone.invalid">
+                                                    <div >
+                                                        <input type="text"
+                                                         class="input100 wrap-input100" name="Phonenumber" 
+                                                         placeholder="Phone"ngModel required 
+                                                         minlength="11"
+                                                         maxlength="11"
+                                                         (keydown)="onKeyDown($event)"
+                                                         #phone="ngModel">
+                                                        
+                                                    </div>
+                                                    <div class="col-sm-5 alert alert-danger" *ngIf="phone.invalid && phone.touched">
+                                                        <span *ngIf="phone.errors?.required">
+                                                            phone. required
+                                                        </span>
+                                                        <span *ngIf="phone.errors?.minlength || phone.errors?.maxlength">
+                                                                phone number 12 digits
+                                                            </span>
+                                                   </div>
+                                                  </div>
+                              
+                                                  <div class="form-group col-sm-12"[class.has-error]="facebook.invalid">
+                                                      <div >
+                                                          <input type="email" email class="input100 wrap-input100" (keydown)="onKeyDown($event)" name="Facebook" placeholder="FaceBook"ngModel #facebook="ngModel" >
+                                                          
+                                                      </div>
+                                                      <div class="col-sm-3 alert alert-danger" *ngIf="facebook.invalid && facebook.touched">
+                                                            <span *ngIf="facebook.errors?.required">
+                                                                email. required
+                                                            </span>
+                                                            <span *ngIf="facebook.errors?.email">
+                                                                email.format error
+                                                            </span>
+                                                       </div>
+                                                     
+                                                    </div> 
+                                                     
+                                                   
+                                                 
+                                                    <div class="container-contact100-form-btn">
+                                                            <input type="submit" style="width:80px; height:60px ;" 
+                                                             value="Sign Up" (click)="addp(patfrm.value)" 
+                                                             [disabled]="patfrm.invalid"
+                                                             class="btn btn-info btn-lg">
+
+                                                                  </div>
+                                                      
+                                                     
+                                               
+                                                      </form>  
+        
+                    <div class="contact100-more flex-col-c-m" style="background-image: url('assets/register/images/bg-01.jpg');">
+                        <div class="flex-w size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-map-marker"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Address
+                                </span>
+        
+                                <span class="txt2">
+                                    Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-phone-handset"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Lets Talk
+                                </span>
+        
+                                <span class="txt3">
+                                    +1 800 1236879
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-envelope"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    General Support
+                                </span>
+        
+                                <span class="txt3">
+                                    contact@example.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+	
+ <!--===============================================================================================-->
+ <script src="assets/register/vendor/jquery/jquery-3.2.1.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/animsition/js/animsition.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/bootstrap/js/popper.js"></script>
+     <script src="assets/register/vendor/bootstrap/js/bootstrap.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/select2/select2.min.js"></script>
+     <script>
+         $(".selection-2").select2({
+             minimumResultsForSearch: 20,
+             dropdownParent: $('#dropDownSelect1')
+         });
+     </script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/daterangepicker/moment.min.js"></script>
+     <script src="assets/register/vendor/daterangepicker/daterangepicker.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/countdowntime/countdowntime.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/js/main.js"></script>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+     <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('assets/register/js', new Date());
+ 
+       gtag('config', 'UA-23581568-13');
+     </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- updated 23-2 -->
+<!-- <html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <body>
+            <form   role="form" #stdfrm="ngForm" > 
+                <input type="number" name="ID" ngModel  placeholder="id"> 
+                <input type="text" name="PName" ngModel   placeholder="pName"> 
+                <input type="text" name="Blood_group" ngModel  placeholder="Blood group">
+                <input type="number" name="Phonenumber" ngModel placeholder="phone">
+                <input type="text" name="Facebook" ngModel  placeholder="Facebook">
+                <input type="number" name="Age"   placeholder="Age ">
+                <input type="text" name="City" ngModel placeholder="City">
+                <input type="text" name="Street" ngModel placeholder="street">
+                <input type="text" name="Username" ngModel  placeholder="Username">
+                <input type="text" name="Password" ngModel placeholder="password">-->
+                <!-- <input type="submit" value="add" (click)="addp(stdfrm.value)" [routerLink]="['/patients/profile/',stdfrm.value._id]" > -->
+                <!-- <input type="submit" value="add" [routerLink]="['/patients/login/stdfrm.value._id']"  (click)="addp(stdfrm.value)"> -->
+              
+                <!-- <tr *ngFor="let item of Patients">
+                     </form>(ngSubmit)="addp(stdfrm.value)" 
+                 <a class="btn btn-primary" [routerLink]="['/patients/profile/',stdfrm.value._id]" role="button"> <input type="submit" value="add" ></a>   -->
+
+              <!-- </form> -->
+              <!-- <a class="btn btn-primary" [routerLink]="['/patients/profile/',stdfrm.value._id]" role="button">continue </a>  -->
+    <!-- </body>
+</html>  -->
+

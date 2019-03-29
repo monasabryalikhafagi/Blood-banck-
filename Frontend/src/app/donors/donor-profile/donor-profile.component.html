@@ -1,0 +1,445 @@
+
+    
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <style>
+             .container{
+               background-color: azure;
+               font-size: 15px;
+               text-align: center;
+             
+              }
+             
+       .form-control{
+         height: 50px;
+          font-size: 20px;
+       }
+             
+              h1{
+                text-align: center;
+              }
+              .border
+{
+  border:teal black solid;
+  margin:10px auto;
+  padding:10px;
+  width: 500px;
+  height: 550px;
+}
+             
+              </style>
+      
+        <title>profile</title>
+          <meta charset="utf-8">
+         
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+      
+        <title>Resume - Start Bootstrap Theme</title>
+      
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+      
+      
+           <!-- Bootstrap core CSS -->
+        <link href="assets/profile/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+      
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+        <link href="assets/profile/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+      
+      
+        <!-- Custom styles for this template -->
+        <link href="assets/profile/css/resume.min.css" rel="stylesheet">
+      </head>
+      <body  >
+        <div class="container">
+        <!-- The navbar  -->
+        <nav class="navbar navbar-expand-lg   fixed-top" style="background-color:silver;" id="sideNav">
+          <a class="navbar-brand js-scroll-trigger" style="margin: 0" >
+            <!-- <span class="d-block d-lg-none">Clarence Taylor</span> -->
+          
+        
+            <span class="d-none d-lg-block">
+              <img class="rounded-circle" src="assets/profile/img/b1.jpg"  
+              style="margin-top:50px; width: 200px; height:200px;"
+              >
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <br><br><br><br>
+          
+      </nav>
+<div class="row">
+ 
+    
+   
+
+    
+
+<div class="col-9">
+   
+    
+        <section  id="about">
+          <div class="w-100">
+            <h1 class="mb-0">welcome
+              <span class="text-primary">{{donor.UserName}}</span>
+            </h1>
+            <div  style="font-size:30px;">
+             
+“As we celebrate Blood Donation Day, we would also thank each and every blood donor. 
+Your donations made a big difference in the lives of many patients.” 
+“Because of your generosity, lives will be saved. Thank you for your blood donation.”
+              
+            </div>
+            
+           
+          </div>
+        </section><br/><br/><br/>
+       
+        <div class="container">
+          <div class=" w-50 m-auto">   
+            <div >
+              <form  (ngSubmit)="update(donor._id,donor)" class="form-horizontal border"  role="form"#resf="ngForm" >
+
+                
+                  <div class="form-group"class="row" [class.has-error]="id.invalid">
+                    <label for="id" class="col-sm-3 control-label">Id</label>
+                    <div class="col-sm-9">
+                     <input type="number"id="id" class="form-control mb-3" 
+                     name="_id" placeholder="ID"
+                     [(ngModel)]="donor._id"
+                     disabled
+                     required min="1"
+                     #id="ngModel">
+                    </div>
+                    <div class="col-sm-12 alert alert-danger" *ngIf="id.invalid && id.touched">
+                        <span *ngIf="id.errors?.required">
+                          id required
+                        </span>
+                        <span *ngIf="id.errors?.min">
+                            id must be equal or greater than 1
+                          </span>
+                   </div>
+                  </div>
+                  <div class="form-group"class="row" [class.has-error]="Name.invalid">
+                      <label for="Name" class="col-sm-3 control-label">Name</label>
+                      <div class="col-sm-9">
+                          <input type="text"id="Name" class="form-control mb-3"
+                           name="Name" placeholder="Name"
+                           [(ngModel)]="donor.Name"
+                          (keydown)="onKeyDown($event)"
+                          
+                          minlength="1"
+                          maxlength="5"
+                          required 
+                          #Name="ngModel">
+                      </div>
+                      <div class="col-sm-12 alert alert-danger" *ngIf="Name.invalid && Name.touched">
+                          <span *ngIf="Name.errors?.required">
+                            name is required
+                          </span>
+                          <span *ngIf="Name.errors?.minlength">
+                            minlength 1
+                        </span>
+                        <span *ngIf="Name.errors?.maxlength">
+                            maxlength 10
+                        </span>
+                     </div>
+                    </div>
+        
+                   
+                        
+        
+                        <div class="form-group"class="row" [class.has-error]="Age.invalid">
+                            <label for="Age" class="col-sm-3 control-label">Age</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control mb-3" name="Age" 
+                                placeholder="Age"
+                                [(ngModel)]="donor.Age" #Age="ngModel"
+                                     required [range]="[18,45]">
+                            </div>
+                            <div class="col-sm-12 alert alert-danger" *ngIf="Age.invalid && Age.touched">
+                                <span *ngIf="Age.errors?.required">
+                                    Age is required
+                                </span>
+                                <span *ngIf="Age.errors?.range">
+                                    Age is out of range 18:45
+                                </span>
+                           </div>
+                          </div>
+        
+                          <div class="form-group"class="row" [class.has-error]="LastDonation.invalid">
+                              <label for="LastDonation" class="col-sm-3 control-label">LastDonation</label>
+                              <div class="col-sm-9">
+                                  <input type="text"id="LastDonation" class="form-control mb-3"
+                                   name="LastDonation" placeholder="Last_Donation" ngModel
+                                   [(ngModel)]="donor.LastDonation"
+                                   
+                                 [maxDate]="today"
+                                  #LastDonation="ngModel">
+                              </div>
+                              <div class="col-sm-12 alert alert-danger" *ngIf="LastDonation.invalid && LastDonation.touched">
+                                  
+                                  <span *ngIf="LastDonation.errors?.maxDate">
+                                      LastDonation must be up to currentDate
+                                </span>
+                             </div>
+                             
+                            </div>
+                            <div class="form-group"class="row" [class.has-error]="Gender.invalid">
+                                
+                                <div class="col-sm-6">
+                                
+                                   <label for="female ">female </label>
+                                   <input type="radio"id="female" class=" w-50"value="female"name="Gender" placeholder="female"
+                                   [(ngModel)]="donor.Gender" disabled required #Gender="ngModel">
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="male" >male</label>
+                                    <input type="radio"id="male" class="w-50"name="Gender"W value="male" placeholder="male"
+                                    [(ngModel)]="donor.Gender" disabled required #Gender="ngModel">
+                                     
+                                </div>
+                                <div class="col-sm-12 alert alert-danger" *ngIf="Gender.invalid && Gender.touched">
+                                    <span *ngIf="Gender.errors?.required">
+                                        Gender is required
+                                    </span>
+                               </div>
+                              </div>
+                           
+                              <div class="form-group"class="row" [class.has-error]="city.invalid">
+                                  <label for="city" class="col-sm-3 control-label">city</label>
+                                  <div class="col-sm-9">
+                                      <input type="text"id="city" class="form-control mb-3"
+                                       name="city" placeholder="City"
+                                       [(ngModel)]="donor.Address.city" 
+                                       (keydown)="onKeyDown($event)"
+                          
+                         
+                                       required #city="ngModel">
+                                      
+                                  </div>
+                                  <div class="col-sm-12 alert alert-danger" *ngIf="city.invalid && city.touched">
+                                      <span *ngIf="city.errors?.required">
+                                          city is required
+                                      </span>
+                                 </div>
+                                </div>
+                                <div class="form-group"class="row" [class.has-error]="street.invalid">
+                                    <label for="street" class="col-sm-3 control-label">street</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"id="street" class="form-control mb-3"
+                                         name="street" placeholder="Street"
+                                         [(ngModel)]="donor.Address.street"
+                                         (keydown)="onKeyDown($event)"
+                          
+                          
+                                          required #street="ngModel">
+                                        
+                                    </div>
+                                    <div class="col-sm-12 alert alert-danger" *ngIf="street.invalid && street.touched">
+                                        <span *ngIf="street.errors?.required">
+                                            street is required
+                                        </span>
+                                   </div>
+                                  </div>
+                                 
+                                  <div class="form-group"class="row" [class.has-error]="phone.invalid">
+                                      <label for="phone" class="col-sm-3 control-label">phone</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" class="form-control mb-3" name="phone"
+                                           placeholder="Phone"[(ngModel)]="donor.Contact.phone" 
+                                           required
+                                           minlength="11"
+                                           maxlength="11"
+                                           (keydown)="onKeyDown($event)"
+                          
+                          
+                                            #phone="ngModel">
+                                          
+                                      </div>
+                                      <div class="col-sm-12 alert alert-danger" *ngIf="phone.invalid && phone.touched">
+                                          <span *ngIf="phone.errors?.required">
+                                              phone is required
+                                          </span>
+                                          <span *ngIf="phone.errors?.minlength || phone.errors?.maxlength">
+                                            phone number must be 11 digits
+                                        </span>
+                                     </div>
+                                    </div>
+        
+                                    <div class="form-group"class="row" [class.has-error]="facebook.invalid">
+                                        <label for="facebook=" class="col-sm-3 control-label">facebook</label>
+                                        <div class="col-sm-9">
+                                            <input type="email"  class="form-control mb-3"
+                                             name="facebook" placeholder="FaceBook"
+                                             [(ngModel)]="donor.Contact.facebook"
+                                            required
+                                            email
+                                            (keydown)="onKeyDown($event)"
+                          
+                          
+                                            
+                                            #facebook="ngModel" >
+                                            
+                                        </div>
+                                        <div class="col-sm-12 alert alert-danger" *ngIf="facebook.invalid && facebook.touched">
+                                            <span *ngIf="facebook.errors?.required">
+                                                email is required
+                                            </span>
+                                            <span *ngIf="facebook.errors?.email">
+                                                Valid email is required: ex@abc.xyz
+                                            </span>
+                                       </div>
+                                       
+                                      </div>         
+          
+       <div class="row">
+        <label for="facebook=" class="col-sm-6 control-label"> select your blood_group:</label>
+                
+                  <select id="facebook=" name="BloodGroup"[(ngModel)]="donor.BloodGroup" >
+                   
+                  <option > A+ </option>
+                  <option > A- </option>
+                  <option > AB+ </option>
+                  <option > AB- </option>
+                  <option > O+ </option>
+                  <option > O- </option>
+                  </select></div>
+                  <br/> <br/>
+        <div class="row"  >
+          <label class="col-sm-3"></label>
+          <input type="submit" [disabled]="resf.invalid"value="update" class="btn btn-primary d-block btn-lg col-sm-2 ">
+          <label class="col-sm-1"></label>
+          <button (click)="delete(donor._id)" (click)="deleteuser(donor._id)" (click)="backlogin()" class="btn btn-danger btn-lg col-sm-2">Delete</button>
+
+        </div>
+               
+               </form>  
+            </div>     
+            
+          </div>
+        </div> 
+
+          
+          
+          <br/><br/><br/>
+          <div id="search" class="resume-section " >
+            <form class="form-group row"  >
+              <input type="text" #query  class="form-control  col-8 ml-5" style="height:30px; font-size: 15px; " autofocus 
+               placeholder="Search for Hospitals.Ex:cairo ..."/>
+              <button class="btn btn-danger col-1"  
+               (click)="getsearchhospital(query.value)" class="btn btn-success btn-lg" >Go!
+            </button>
+            
+          
+            </form>
+          
+           
+           
+          
+            
+               <div class="row" >
+                  <div class="col-10">
+                      <table class="table table-striped table-dark">
+                          <thead>
+                              <tr>
+                                  
+                                  <th scope="col">Name</th>
+                                  <th scope="col">City</th>
+                                  <th scope="col">Street</th>
+                                  <th scope="col">Department</th>
+                                </tr>
+                            
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of hospitals">
+                              
+                              <td> {{item.Name}}</td>
+                              <td> {{item.Location.city}}</td>
+                              <td> {{item.Location.street}}</td>
+                              <td> {{item.Department}}</td>
+                             
+                            </tr>
+                          </tbody>
+                        </table>
+            
+  
+                  
+  </div>
+
+               </div>
+              </div>
+                
+</div>
+      
+</div>
+     
+</div>        
+filter search from hospitals
+<table class="table table-striped table-dark">
+  <thead>
+      <tr>
+          
+          <th scope="col">Name</th>
+          <th scope="col">City</th>
+          <th scope="col">Street</th>
+          <th scope="col">Department</th>
+        </tr>
+    
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of hospitals">
+      
+      <td> {{item.Name}}</td>
+      <td> {{item.Location.city}}</td>
+      <td> {{item.Location.street}}</td>
+      <td> {{item.Department}}</td>
+     
+    </tr>
+  </tbody>
+</table>
+<br/><br/><br/><br/><br/><br/> 
+        <!-- Bootstrap core JavaScript -->
+        <script src="assets/profile/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/profile/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      
+        <!-- Plugin JavaScript -->
+        <script src="assets/profile/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script>
+            $(document).ready(function() {
+      
+              alert("hi");
+      
+      
+              $("#myBtn").click(()=>{
+                document.getElementById("myForm").reset();
+              });
+      
+         
+      
+            });//ready
+              </script>
+      
+      
+        <!-- Custom scripts for this template -->
+        <script src="assets/profile/js/resume.min.js"></script>
+      
+      
+        
+      
+      
+         </body>
+      
+      
+      </html>
+      
+      
+      

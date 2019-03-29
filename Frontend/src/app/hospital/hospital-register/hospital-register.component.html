@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V17</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="assets/register/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/register/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/register/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body >
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form"  (ngSubmit)="Login()"role="form" #hosfrm="ngForm">
+				<span class="contact100-form-title">
+					Registeration
+				</span>
+
+				<!-- <label class="label-input100" for="Name">Tell us your name *</label>
+				<div class="wrap-input100 validate-input" data-validate = "Enter name">
+					<input id="name" class="input100" type="text" name="Name" placeholder="Name">
+					<span class="focus-input100"></span>
+        </div> -->
+<!-- new -->
+
+
+<!-- ID -->
+<label class="label-input100" for="_id">Tell us your ID *</label>
+<div class="form-group">
+  
+
+           
+    <!-- <div >
+        <input type="number"id="id" class="input100 wrap-input100 " name="_id" placeholder="ID"ngModel
+        required min="0"#id="ngModel">
+       </div> -->
+
+  <div [class.has-error]="id.invalid">
+      <input type="number" id="id" class=" input100 wrap-input100" 
+      placeholder="Id"
+      [(ngModel)]="hospital._id"
+      name="_id"
+      #id="ngModel"
+      required
+      min="0"
+      style="width:445px;"
+      >
+      <div class="col-sm-5 alert alert-danger" *ngIf="id.invalid && id.touched">
+          <span *ngIf="id.errors?.required">
+            id required
+          </span>
+          <span *ngIf="id.errors?.min">
+                id >0
+              </span>
+     </div>
+      
+  </div>
+
+</div>
+
+<!-- name -->
+<label class="label-input100" for="Name">Tell us your name *</label>
+<div class="form-group" [class.has-error]="name.invalid">
+  
+  <div >
+      <input type="text" id="name" class=" input100 wrap-input100" 
+      placeholder="Name"
+      [(ngModel)]="hospital.Name"
+      name="Name"
+      #name="ngModel"
+      (keydown)="onKeyDown($event)"  
+      required
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      >
+      
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="name.invalid && name.touched">
+  <span *ngIf="name.errors?.required">
+    name is required
+  </span>
+  <span *ngIf="name.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="name.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>
+
+        <!-- password -->
+        <label class="label-input100" for="Password">Password *</label>
+<div class="form-group" [class.has-error]="password.invalid">
+  
+  <div >
+      <input type="password" id="password" class=" input100 wrap-input100"
+      placeholder="Password"
+      [(ngModel)]="hospital.Password"
+      name="Password"
+      #password="ngModel"
+      required
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      (keydown)="onKeyDown($event)"  
+      >
+      
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="password.invalid && password.touched">
+  <span *ngIf="password.errors?.required">
+    password is required
+  </span>
+  <span *ngIf="password.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="password.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>
+<!-- email -->
+<label class="label-input100" for="Email">email *</label>
+<div class="form-group" [class.has-error]="email.invalid">
+  
+  <div >
+      <input type="email" id="email" class=" input100 wrap-input100"
+      placeholder="Email"
+      [(ngModel)]="hospital.Email"
+      (keydown)="onKeyDown($event)"  
+      name="Email"
+      #email="ngModel"
+      required
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      >
+      
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="email.invalid && email.touched">
+  <span *ngIf="email.errors?.required">
+    email is required
+  </span>
+  <span *ngIf="email.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="email.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>
+<!-- city -->
+<label class="label-input100" for="city">Tell us your city *</label>
+<div class="form-group" [class.has-error]="city.invalid">
+  
+  <div >
+      <input type="text" id="city" class=" input100 wrap-input100"
+      placeholder="City"
+      [(ngModel)]="hospital.City"
+      name="City"
+      #city="ngModel"
+      (keydown)="onKeyDown($event)"  
+      required
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      >
+     
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="city.invalid && city.touched">
+  <span *ngIf="city.errors?.required">
+    city is required
+  </span>
+  <span *ngIf="city.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="city.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>
+
+<!-- street -->
+        
+<label class="label-input100" for="Name">Tell us your street *</label>
+<div class="form-group" [class.has-error]="street.invalid">
+  
+  <div >
+      <input type="text" id="street" class=" input100 wrap-input100"
+      placeholder="Street"
+      [(ngModel)]="hospital.Street"
+      name="Street"
+      #street="ngModel"
+      (keydown)="onKeyDown($event)"  
+      required
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      >
+      
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="street.invalid && street.touched">
+  <span *ngIf="street.errors?.required">
+    street is required
+  </span>
+  <span *ngIf="street.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="street.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>    
+<!-- department -->
+<label class="label-input100" for="Department">Tell us your department *</label>
+<div class="form-group" [class.has-error]="department.invalid">
+  
+  <div >
+      <input type="text" id="department" class=" input100 wrap-input100"
+      placeholder="Department"
+      [(ngModel)]="hospital.Department"
+      name="Department"
+      #department="ngModel"
+      required
+      (keydown)="onKeyDown($event)"  
+      minlength="5"
+      maxlength="50"
+      style="width:445px;"
+      >
+      
+  </div>
+
+  <div class="col-sm-5 alert alert-danger" *ngIf="department.invalid && department.touched">
+  <span *ngIf="department.errors?.required">
+    department is required
+  </span>
+  <span *ngIf="department.errors?.minlength">
+    min 5
+  </span>
+  <span *ngIf="department.errors?.maxlength">
+      max length 50
+  </span>
+  
+  </div>
+
+</div>
+
+<!-- <button [disabled]="hosfrm.invalid"  type="submit" class="btn btn-success">Submit</button> -->
+             
+				
+
+				<div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" 
+          [disabled]="hosfrm.invalid"
+          type="submit"
+          (click)="addHospital(hosfrm.value)"
+          >
+						submit
+					</button>
+				</div>
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url('assets/register/images/bg-01.jpg');">
+				<div class="flex-w size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-map-marker"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Address
+						</span>
+
+						<span class="txt2">
+							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-phone-handset"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Lets Talk
+						</span>
+
+						<span class="txt3">
+							+1 800 1236879
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-envelope"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							General Support
+						</span>
+
+						<span class="txt3">
+							contact@example.com
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/register/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/register/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/register/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/register/js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('assets/register/js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>

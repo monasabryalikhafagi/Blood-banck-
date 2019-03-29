@@ -1,0 +1,38 @@
+<p>home</p>
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+            <th> Id </th>
+        <th> Name </th>
+        
+        <th>Needed </th>
+        <th> Department </th>
+        <!-- <th> Location </th> -->
+        <th>city </th>
+        <th>street </th>
+  
+      </tr>
+    </thead>
+    <tbody>
+            <!-- <a class="btn btn-primary" [routerLink]="['/case/details/',item._id]" role="button">Details</a>  -->
+      <tr *ngFor="let item of  cases">
+            <td> {{item._id}}</td>
+        <td> {{item.Name}}</td>
+        <td> {{item.Needed}}</td>
+        <td> {{item.Department}}</td>
+        <!-- <td> {{item.Location}}</td> -->
+        <!-- <td> {{item.Location.city}} 
+            {{item.Location.street}}</td> -->
+        <td> {{item.Location.city}}</td>
+        <td> {{item.Location.street}}</td>
+       
+       <!-- <p>list</p> -->
+          
+          
+       
+  
+      </tr>
+    </tbody>
+  </table>
+
+  

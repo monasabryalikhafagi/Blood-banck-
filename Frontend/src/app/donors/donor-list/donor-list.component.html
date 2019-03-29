@@ -1,0 +1,42 @@
+<p>
+  donor-list works!
+</p>
+<table style="border:1"class="table table-bordered table-hover">
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Age</td>
+    <td>Gender</td>
+    <td>BloodGroup</td>
+    <td>phone</td>
+    <td>facebook</td>
+    <td>city</td>
+    <td>street</td>
+    <td>LastDonation</td>
+    <td colspan="2">operation</td>
+  </tr>
+  <tr *ngFor="let item of donors">
+    <td>{{item._id}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.Age}}</td>
+    <td>{{item.Gender}}</td>
+    <td>{{item.BloodGroup}}</td>
+    <td>{{item.Contact.phone}}</td>
+    <td>{{item.Contact.facebook}}</td>
+    <td>{{item.Address.city}}</td>
+    <td>{{item.Address.street}}</td>
+    
+    <td>{{item.LastDonation}}</td>
+    <td><button (click)="delete(item._id)">delete</button></td>
+ 
+    
+
+
+
+  </tr>
+
+
+
+
+
+</table>

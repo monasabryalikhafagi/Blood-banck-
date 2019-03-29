@@ -1,0 +1,17 @@
+<body>
+    <form action="/Donation/edit/<%=Donation._id%>" method="post"> 
+
+    <!-- <input type="file" name="photofile"> -->
+    
+    ID    : <input type="text" name="id" value=<%=Donation._id%> disabled/><br/>
+    Date : <input type="text" name="date" value=<%=Donation.Donation_Date%> /><br/>
+    Patient  :  <input type="text" name="patient" value=<%=Donation.Patient%> /><br/>
+    Donor  :  <input type="text" name="donor" value=<%=Donation.Donor%> /><br/>
+    <!-- hos  :  <input type="text" name="hospital" value=<%=myHospital.Name%> /><br/> -->
+    hos  :  <input type="text" name="hospital" value=<%=Donation.Hospital%> /><br/>
+
+ 
+
+    
+    <input type="submit" value="save">
+    </form>

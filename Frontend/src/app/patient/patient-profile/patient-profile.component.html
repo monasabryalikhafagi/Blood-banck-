@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #input{
+          width: 400px;
+          height: 30px;
+          border-radius: 10px;
+          color:black;
+          margin: 5px;
+        }
+        #label{
+          color: black;
+          font-size: 15px;
+         
+      
+        }
+        </style>
+
+  <title>profile</title>
+    <meta charset="utf-8">
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Resume - Start Bootstrap Theme</title>
+
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+
+     <!-- Bootstrap core CSS -->
+  <link href="assets/profile/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Custom fonts for this template -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="assets/profile/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
+
+
+  <!-- Custom styles for this template -->
+  <link href="assets/profile/css/resume.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+ 
+     
+  <!-- The navbar  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" style="margin: 0" href="#page-top">
+      <!-- <span class="d-block d-lg-none">Clarence Taylor</span> -->
+    
+  
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/profile/img/picon2.png" alt="" 
+        style="margin-top:50px;"
+        >
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <br><br><br><br>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mt-5">
+            <li class="nav-item mt-5">
+                <a class="nav-link js-scroll-trigger active" href="/allpatient/profile#about" style="font-size:15px;">About</a>
+              </li>
+              <li class="nav-item mt-2">
+                <a class="nav-link js-scroll-trigger" href="/allpatient/profile#createcase" style="font-size:15px;">CreateCase</a>
+              </li>
+           
+              <!-- <li class="nav-item mt-2">
+                <a class="nav-link js-scroll-trigger" href="/allpatient/profile#caseslist" style="font-size:15px;">CasesList</a>
+              </li> -->
+           
+    
+        </ul>
+      </div>
+</nav>
+<br><br><br><br><br>
+  <div class="container-fluid ">
+          <!-- Display the data  -->
+    
+     
+
+    <section class="resume-section p-3 p-lg-5 d-flex " id="about">
+      
+      <div class="w-100">
+       
+        <h1 class="mb-0">
+          Hello
+          <span class="text-primary">{{allpatient.PName}}</span>
+        </h1>
+        <div class="subheading mb-5" style="font-size:30px;">{{allpatient.Location.Street}} Street · {{allpatient.Location.City}} ·
+          <a href="mailto:name@email.com">{{allpatient.Connection_way.Facebook}}</a>
+        </div>
+        <p class="lead mb-5" style="font-size:30px;">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+        <!-- <div class="social-icons">
+          <a href="#">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div> -->
+      </div>
+    </section>
+
+<!-- our register form -->
+<!-- <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+          
+      <th> Name </th>
+      
+      
+       <th> Location </th> -->
+      <!-- <th>city </th>
+      <th>street </th>
+      <th> Department </th>
+
+    </tr>
+  </thead>
+  <tbody> -->
+          <!-- <a class="btn btn-primary" [routerLink]="['/case/details/',item._id]" role="button">Details</a>  -->
+          <!-- <tr *ngFor="let item of hospitals"> -->
+             
+           
+            <!-- </tr> -->
+            <!-- </tbody>
+</table> --> 
+
+
+
+
+
+
+<!-- create Case section -->
+
+
+    <hr class="m-0">
+    <section class="resume-section  p-3 p-lg-5 d-flex justify-content-center" id="createcase">
+      <div class="w-100 ">
+        <h2 class="mb-5 text-primary">createcase</h2>
+        <form (ngSubmit)="addcase(patfrm.value) ; patfrm.reset()"  class="form-horizontal" role="form" #patfrm="ngForm" 
+        style="background-Color:#fff;border-radius:20px;"
+        id="myForm"
+        >
+          <!-- <p class="bg-danger" >create case</p> -->
+          <!-- <div>
+            {{hosfrm.value | json}}
+          </div> -->
+          <!-- <div class="form-group"> -->
+            
+            <!-- ////////// name -->
+            <br><br>
+            <div class="form-group" [class.has-error]="name.invalid">
+              <label for="department" class="col-sm-2 control-label" id="label">Name</label>
+              <div class="col-sm-5">
+                  <input type="text" id="name" class="form-control"
+                  ngModel
+                  id="input"
+                  name="Name"
+                  #name="ngModel"
+                  required
+                  minlength="1"
+                  maxlength="100"
+                  >
+              </div>
+              <div class="col-sm-5 alert alert-danger" *ngIf="name.invalid && name.touched">
+              <span *ngIf="name.errors?.required">
+                name is required
+              </span>
+              <span *ngIf="name.errors?.minlength">
+                min 1
+              </span>
+              <span *ngIf="name.errors?.maxlength">
+                  max length 100
+              </span>
+              
+              </div>
+            </div>
+        
+        
+            <!--id-->
+        
+            <div class="form-group" [class.has-error]="idn.invalid">
+              <label for="id" class="col-sm-2 control-label" id="label">Id</label>
+            <div class="col-sm-5">
+              <input type="text" id="id" class="form-control"
+              ngModel
+              id="input"
+              #idn="ngModel"
+              name="_id"  
+              required   
+             [range]="[1,1000]">
+          
+            </div>
+            <div class="col-sm-5 alert alert-danger" *ngIf="idn.invalid && idn.touched">
+            <span *ngIf="idn.errors?.required">
+              id required
+            </span>
+            <span *ngIf="idn.errors?.range">
+              rang between 1 and 1000
+            </span>
+            
+            </div>
+            
+            </div>
+        
+        <br>
+
+        <!-- needed -->
+
+        <div class="form-group" [class.has-error]="needed.invalid">
+          <label for="needed" class="col-sm-2 control-label" id="label">Needed</label>
+          <div class="col-sm-5">
+              <input type="text" id="needed" class="form-control"
+              ngModel
+              id="input"
+              name="Needed"
+              #needed="ngModel"
+              required
+              min="1"
+              max="1000"
+              >
+          </div>
+          <div class="col-sm-5 alert alert-danger" *ngIf="needed.invalid && needed.touched">
+          <span *ngIf="needed.errors?.required">
+            needed is required
+          </span>
+          <span *ngIf="needed.errors?.minlength">
+            min 1
+          </span>
+          <span *ngIf="needed.errors?.maxlength">
+              max length 1000
+          </span>
+          
+          </div>
+        </div>
+        
+          
+        
+          <br>
+            <!--dept-->
+            <div class="form-group" [class.has-error]="department.invalid">
+              <label for="department" class="col-sm-2 control-label" id="label">Department</label>
+              <div class="col-sm-5">
+                  <input type="text" id="department" class="form-control"
+                  ngModel
+                  id="input"
+                  name="Department"
+                  #department="ngModel"
+                  required
+                  minlength="1"
+                  maxlength="1000"
+                  >
+              </div>
+              <div class="col-sm-5 alert alert-danger" *ngIf="department.invalid && department.touched">
+              <span *ngIf="department.errors?.required">
+                department is required
+              </span>
+              <span *ngIf="department.errors?.minlength">
+                min 1
+              </span>
+              <span *ngIf="department.errors?.maxlength">
+                  max length 1000
+              </span>
+              
+              </div>
+            </div>
+            <br>
+       
+
+        <!-- city -->
+        <div class="form-group" [class.has-error]="city.invalid">
+            <label for="city" class="col-sm-2 control-label" id="label">city</label>
+            <div class="col-sm-5">
+                <input type="text" id="city" class="form-control"
+              ngModel
+                id="input"
+                name="city"
+                #city="ngModel"
+                required
+                minlength="1"
+                maxlength="1000"
+                >
+            </div>
+            <div class="col-sm-5 alert alert-danger" *ngIf="city.invalid && city.touched">
+            <span *ngIf="city.errors?.required">
+              city is required
+            </span>
+            <span *ngIf="city.errors?.minlength">
+              min 1
+            </span>
+            <span *ngIf="city.errors?.maxlength">
+                max length 1000
+            </span>
+            
+            </div>
+          </div>
+
+
+        <!-- street -->
+
+        <div class="form-group" [class.has-error]="street.invalid">
+            <label for="street" class="col-sm-2 control-label" id="label">street</label>
+            <div class="col-sm-5">
+                <input type="text" id="street" class="form-control"
+                ngModel
+                id="input"
+                name="street"
+                #street="ngModel"
+                required
+                minlength="1"
+                maxlength="1000"
+                >
+            </div>
+            <div class="col-sm-5 alert alert-danger" *ngIf="street.invalid && street.touched">
+            <span *ngIf="street.errors?.required">
+              street is required
+            </span>
+            <span *ngIf="street.errors?.minlength">
+              min 1
+            </span>
+            <span *ngIf="street.errors?.maxlength">
+                max length 1000
+            </span>
+            
+            </div>
+          </div>
+
+          
+        
+          <br>
+        
+          <button type="submit" class="btn btn-primary"  id="myBtn" style="text-align:center;
+          background-Color:#2f7474;height:40px;width:100px;
+          font-size:20px;margin-left: 300px;border-radius: 10px;color: #fff;" ><p 
+          style="font-size:20px;text-align: center;margin-bottom: 50px;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
+          >Submit</p></button>
+          <br><br><br>
+        </form>
+
+
+        
+      </div>
+	</section>
+  
+
+  <section >
+    
+
+
+  </section>
+
+  <!-- List of cases -->
+ 
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="assets/profile/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/profile/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="assets/profile/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script>
+      $(document).ready(function() {
+
+        alert("hi");
+
+
+        $("#myBtn").click(()=>{
+          document.getElementById("myForm").reset();
+        });
+
+   
+
+      });//ready
+        </script>
+
+
+  <!-- Custom scripts for this template -->
+  <script src="assets/profile/js/resume.min.js"></script>
+
+
+  
+<!-- 
+  <script>
+    $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+    </script> -->
+ 
+
+   </body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {{p._id}}
+{{p.PName}}
+{{p.Blood_group}} -->
+<!-- {{p.connection_way.Facebook}}
+{{p.connection_way.Phonenumber}}
+{{p.Age}}
+{{p.Gender}}
+{{p.Location.Street}}
+{{p.Location.City}}
+{{p.Username}}
+{{p.Password}} -->
+<!-- <form  role="form" #caseform="ngForm">
+    <input type="number" placeholder="Id" name="_id" ngModel>
+    <input type="text" placeholder="Location" name="city" ngModel>
+    <input type="text" placeholder="Location" name="street" ngModel>
+    <input type="text" placeholder="needed" name="Needed" ngModel>
+    <input type="submit" (click)="addcase(caseform.value)">
+</form>
+
+<button type="button" (click)="goBack()" class="btn btn-danger">Back</button> -->

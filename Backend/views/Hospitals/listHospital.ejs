@@ -1,0 +1,27 @@
+<table >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Hospitals.forEach((Hospital)=>{%>
+        <tr>
+          <td><%=Hospital._id%></td>
+          <td><%=Hospital.Name%></td>
+          <td><%=Hospital.Department%></td>
+         
+          <td><%=Hospital.Location%></td>
+          
+          
+          <td>
+
+            <a  href="/Hospitals/deleteHospital/<%=Hospital._id%>">Delete</a>
+          </td>
+        </tr>
+      <%})%>
+    </tbody>
+  </table>

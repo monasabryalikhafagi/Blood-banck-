@@ -1,0 +1,390 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>Contact </title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!--===============================================================================================-->
+                <link rel="icon" type="image/png" href="assets/register/images/icons/favicon.ico"/>
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/bootstrap/css/bootstrap.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/animate/animate.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/css-hamburgers/hamburgers.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/animsition/css/animsition.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/select2/select2.min.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/vendor/daterangepicker/daterangepicker.css">
+            <!--===============================================================================================-->
+                <link rel="stylesheet" type="text/css" href="assets/register/css/util.css">
+                <link rel="stylesheet" type="text/css" href="assets/register/css/main.css">
+            <!--===============================================================================================-->
+        <style>
+            option{
+                font-size:15px;
+            }
+        </style>   
+        </head>
+
+<body >
+
+
+        <div class="container-contact100">
+                <div class="wrap-contact100">
+
+
+
+                        <form class="contact100-form validate-form" (ngSubmit)="Login()"
+                         role="form"#resd="ngForm" >
+                         <span class="contact100-form-title">
+                                Registeration
+                            </span>
+                                <div class="form-group col-sm-12  " [class.has-error]="id.invalid">
+
+                                 
+                                  <div class="wrap-input100">
+                                   <input type="number"id="id" class="input100 " name="_id" placeholder="ID"ngModel
+                                   required min="0"#id="ngModel">
+                                  </div>
+                                  
+                                  <div class="col-sm-12 alert alert-danger" *ngIf="id.invalid && id.touched">
+                                      <span *ngIf="id.errors?.required">
+                                        id is required
+                                      </span>
+                                      <span *ngIf="id.errors?.min">
+                                            id >0
+                                          </span>
+                                 </div>
+                                </div>
+
+                                <div class="form-group col-sm-12" [class.has-error]="Name.invalid">
+                                    <div class="wrap-input100">
+                                        <input type="text"id="Name" class="input100 wrap-input100" name="Name" 
+                                        placeholder="Name"
+                                        ngModel 
+                                        minlength="1"
+                                        maxlength="10"
+                                        (keydown)="onKeyDown($event)"
+                                          required #Name="ngModel">
+                                    </div>
+                                    <div class="col-sm-12 alert alert-danger" *ngIf="Name.invalid && Name.touched">
+                                        <span *ngIf="Name.errors?.required">
+                                            Name is required
+                                        </span>
+                                        <span *ngIf="Name.errors?.minlength">
+                                            minlength 1
+                                        </span>
+                                        <span *ngIf="Name.errors?.maxlength">
+                                            maxlength 10
+                                        </span>
+                                   </div>
+                                  </div>
+                               
+                              
+                                  <div class="form-group col-sm-12" [class.has-error]="UserName.invalid">
+                                    <div class="wrap-input100">
+                                          <input type="text"id="UserName" class="input100 wrap-input100" name="UserName" 
+                                          placeholder="UserName"
+                                          ngModel   required
+                                          (keydown)="onKeyDown($event)"
+                  
+                                          minlength="1"
+                                          maxlength="10"
+                                           required 
+                  
+                                           #UserName="ngModel">
+                                      </div>
+                                      <div class="col-sm-12 alert alert-danger" *ngIf="UserName.invalid && UserName.touched">
+                                          <span *ngIf="UserName.errors?.required">
+                                              UserName required
+                                          </span>
+                                          <span *ngIf="UserName.errors?.minlength">
+                                                minlength 1
+                                            </span>
+                                            <span *ngIf="UserName.errors?.maxlength">
+                                                maxlength 10
+                                            </span>
+                                     </div>
+                                    </div>
+                                    <div class="form-group col-sm-12" [class.has-error]="password.invalid">
+                                        <div class="wrap-input100">
+                                            <input type="password" id="password" class="input100 wrap-input100" name="password" placeholder="password"
+                                            ngModel   required #password="ngModel">
+                                        </div>
+                                        <div class="col-sm-12 alert alert-danger" *ngIf="password.invalid && password.touched">
+                                            <span *ngIf="password.errors?.required">
+                                                password is required
+                                            </span>
+                                       </div>
+                                      </div>
+                              
+                                      <div class="form-group col-sm-12" [class.has-error]="Age.invalid">
+                                        <div class="wrap-input100">
+                                              <input type="number" class="input100 wrap-input100" name="Age" placeholder="Age"ngModel #Age="ngModel"
+                                                   required [range]="[18,45]">
+                                          </div>
+                                          <div class="col-sm-12 alert alert-danger" *ngIf="Age.invalid && Age.touched">
+                                              <span *ngIf="Age.errors?.required">
+                                                  Age is required
+                                              </span>
+                                              <span *ngIf="Age.errors?.range">
+                                                  Age is out of range 18:45
+                                              </span>
+                                         </div>
+                                        </div>
+                                       
+                                        <div class="form-group col-sm-12" [class.has-error]="LastDonation.invalid">
+                                            <div >
+                                                    <label  class="col-sm-12" style="font-size:15px; -webkit-text-fill-color: red;">Last Donation:</label>
+                                                <input type="date"id="LastDonation"  class="col-sm-12 input100 wrap-input100  " name="LastDonation"
+                                                 placeholder="Last_Donation"ngModel
+                                                 [maxDate]="today"
+                                                 #LastDonation="ngModel">
+                                                
+                                            </div>
+                                            <div class="col-sm-12 alert alert-danger" *ngIf="LastDonation.invalid && LastDonation.touched">
+                                                    <span *ngIf="LastDonation.errors?.maxDate">
+                                                            LastDonation must be up to currentDate
+                                                        </span>
+                                           </div>
+                                          </div>
+                                          <div class="form-group col-sm-12 form-check-inline" [class.has-error]="Gender.invalid">
+                                                <div class="col-sm-4">
+                                                
+                                                   <label for="female " class="form-check-label" style="font-size:15px; -webkit-text-fill-color: red;">Female </label>
+                                                   <input type="radio"id="Female" value="female" class=" w-50 form-check-input"name="Gender" 
+                                                   ngModel required #Gender="ngModel">
+                                                    
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label for="male" class="form-check-label" style="font-size:15px; -webkit-text-fill-color: red;" >Male</label>
+                                                    <input type="radio"id="male" value="male" class="w-50 form-check-input"name="Gender" 
+                                                    ngModel required #Gender="ngModel">
+                                                     
+                                                </div>
+                                                <div class="col-sm-12 alert alert-danger" *ngIf="Gender.invalid && Gender.touched">
+                                                    <span *ngIf="Gender.errors?.required">
+                                                        Gender is required
+                                                    </span>
+                                               </div>
+                                              </div>
+                                          
+                                            <div class="form-group col-sm-12" [class.has-error]="city.invalid">
+                                               <div class="wrap-input100" >
+                                                    <input type="text"id="city" 
+                                                    class="input100 wrap-input100 "
+                                                     name="city" placeholder="City"ngModel 
+                                                     minlength="1"
+                                                     maxlength="10"
+                                                     (keydown)="onKeyDown($event)"
+                                                     required #city="ngModel">
+                                                    
+                                                </div>
+                                                <div class="col-sm-12 alert alert-danger" *ngIf="city.invalid && city.touched">
+                                                    <span *ngIf="city.errors?.required">
+                                                        city is required
+                                                    </span>
+                                                    <span *ngIf="city.errors?.minlength">
+                                                        minlength 1
+                                                    </span>
+                                                    <span *ngIf="city.errors?.maxlength">
+                                                        maxlength 10
+                                                    </span>
+                                               </div>
+                                              </div>
+                                              <div class="form-group col-sm-12" [class.has-error]="street.invalid">
+                                                <div class="wrap-input100">
+                                                      <input type="text"id="street" 
+                                                      class="input100 wrap-input100" 
+                                                      name="street" placeholder="Street"ngModel
+                                                      
+                                                      (keydown)="onKeyDown($event)"
+                                                       required #street="ngModel">
+                                                      
+                                                  </div>
+                                                  <div class="col-sm-12  alert alert-danger" *ngIf="street.invalid && street.touched">
+                                                      <span *ngIf="street.errors?.required">
+                                                          street is required
+                                                      </span>
+                                                 </div>
+                                                </div>
+                                                
+                                                <div class="form-group col-sm-12" [class.has-error]="phone.invalid">
+                                                    <div class="wrap-input100">
+                                                        <input type="text"
+                                                         class="input100 wrap-input100" name="phone" 
+                                                         placeholder="Phone"ngModel required 
+                                                         minlength="11"
+                                                         maxlength="11"
+                                                        
+                                                         (keydown)="onKeyDown($event)"
+                                                         #phone="ngModel">
+                                                        
+                                                    </div>
+                                                    <div class="col-sm-12 alert alert-danger" *ngIf="phone.invalid && phone.touched">
+                                                        <span *ngIf="phone.errors?.required">
+                                                            phone is required
+                                                        </span>
+                                                        <span *ngIf="phone.errors?.minlength || phone.errors?.maxlength">
+                                                                phone number musb be  11 digits
+                                                            </span>
+                                                   </div>
+                                                  </div>
+                              
+                                                  <div class="form-group col-sm-12"[class.has-error]="facebook.invalid">
+                                                    <div class="wrap-input100">
+                                                          <input type="email" 
+                                                          email class="input100 wrap-input100" 
+                                                          name="facebook" placeholder="Eg. example@email.com"
+                                                         
+                                                          (keydown)="onKeyDown($event)"
+                                                          ngModel #facebook="ngModel" >
+                                                          
+                                                      </div>
+                                                      <div class="col-sm-12 alert alert-danger"
+                                                       *ngIf="facebook.invalid && facebook.touched">
+                                                            <span *ngIf="facebook.errors?.required">
+                                                                email is required
+                                                            </span>
+                                                            <span *ngIf="facebook.errors?.email">
+                                                                Valid email is required: ex@abc.xyz
+                                                            </span>
+                                                       </div>
+                                                     
+                                                    </div> 
+                                                    <br>  <br><br>  
+                                                    <div class="form-group col-sm-12" >
+                                                        
+                                                           
+                                                       
+                                                            <select  name="BloodGroup"ngModel class="col-sm-12 form-control custom-select"   style="height:50px; font-size: 10px;"  >
+                                                                    
+                                                                <optgroup >
+                                                               <option selected disabled>Select Your Blood Group: </option>
+                                                            <option > A+ </option>
+                                                            <option > A- </option>
+                                                            <option > AB+ </option>
+                                                            <option > AB- </option>
+                                                            <option > O+ </option>
+                                                            <option > O- </option>
+                                                        </optgroup>
+                                                            </select>
+                                                    </div>    
+                                                 
+                                                    <div class="container-contact100-form-btn">
+                                                            <input type="submit" style="width:80px; height:60px ;" 
+                                                             value="Sign Up" (click)="adddonor(resd.value)" 
+                                                             [disabled]="resd.invalid"
+                                                             class="btn btn-info btn-lg">
+
+                                                                  </div>
+                                                      
+                                                     
+                                               
+                                                      </form>  
+        
+                    <div class="contact100-more flex-col-c-m" style="background-image: url('assets/register/images/bg-01.jpg');">
+                        <div class="flex-w size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-map-marker"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Address
+                                </span>
+        
+                                <span class="txt2">
+                                    Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-phone-handset"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Lets Talk
+                                </span>
+        
+                                <span class="txt3">
+                                    +1 800 1236879
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-envelope"></span>
+                            </div>
+        
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    General Support
+                                </span>
+        
+                                <span class="txt3">
+                                    contact@example.com
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+	
+ <!--===============================================================================================-->
+ <script src="assets/register/vendor/jquery/jquery-3.2.1.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/animsition/js/animsition.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/bootstrap/js/popper.js"></script>
+     <script src="assets/register/vendor/bootstrap/js/bootstrap.min.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/select2/select2.min.js"></script>
+     <script>
+         $(".selection-2").select2({
+             minimumResultsForSearch: 20,
+             dropdownParent: $('#dropDownSelect1')
+         });
+     </script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/daterangepicker/moment.min.js"></script>
+     <script src="assets/register/vendor/daterangepicker/daterangepicker.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/vendor/countdowntime/countdowntime.js"></script>
+ <!--===============================================================================================-->
+     <script src="assets/register/js/main.js"></script>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+     <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('assets/register/js', new Date());
+ 
+       gtag('config', 'UA-23581568-13');
+     </script>
+
+</body>
+</html>
+
+
+
+
+
